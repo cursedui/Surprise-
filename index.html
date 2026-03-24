@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --rose: #ffafbd;
+            --wine: #6d0e0e;
+            --cream: #fff0f5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, var(--rose), var(--cream));
+            color: purple;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; }
+        
+        .ring-box {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .ring-box:hover { transform: scale(1.1); }
+
+        .btn {
+            background-color: var(--wine);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #message {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h1>Hey Love,</h1>
+        <p>I built this small space just for us. I dont know if its enough but i do hope you love it. Hehe, honestly dont know if i over did it but guess when you're in love with a cute girl you could do anything just to make sure shes happy. So this is a kinda small surprise from me, someone who will always cherish you for the rest of his life,yes Vee ill love you forever as long as i'm still alive. Ive never loved this hard and honestly its the most blissful thing ive ever felt in my life. Yes we're going through alot but we'll never give up, I personally will never give up on My Woman, yes i wanna marry you and start our own future together and have kids start our own family. Wont be smooth ofcourse but we'll succeed in the end cause we got each other. I love you aloot my Love with everything and ill always be here. My love is yours always and forever' </p>
+        <p>Heres one of the best days of my life cuase i spend it with you a memory that will forever be etched inside me forever.</p>
+        <img src="photo.jpg" height="250" width="200">
+        <p>Scroll down...</p>
+    </div>
+
+    <div class="section">
+        <h1>A Promise for Our Future</h1>
+        <p style="max-width: 600px;">
+            Every day with you is a new favorite memory. 
+            I wanted to give you something that represents my commitment to you.
+        </p>
+        
+        <div class="ring-box" onclick="revealSurprise()">
+            <h2 style="font-size: 5rem;">💍</h2>
+            <p>(Click the ring)</p>
+        </div>
+
+        <div id="message">
+            <h2>Will you accept this promise ring?</h2>
+            <button class="btn" onclick="celebrate()">Yes, Always</button>
+        </div>
+    </div>
+
+    <script>
+        function revealSurprise() {
+            document.getElementById('message').style.display = 'block';
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        function celebrate() {
+            // Confetti effect
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ffafbd', '#6d0e0e', '#ffffff']
+            });
+            alert("I love you! ❤️");
+        }
+    </script>
+</body>
+</html>
